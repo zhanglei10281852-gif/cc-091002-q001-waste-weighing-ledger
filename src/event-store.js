@@ -1,0 +1,1 @@
+export class EventStore { #events=new Map(); append(event){ if(this.#events.has(event.eventId)) return false; this.#events.set(event.eventId,structuredClone(event)); return true; } all(){ return [...this.#events.values()].map(event=>structuredClone(event)); } }

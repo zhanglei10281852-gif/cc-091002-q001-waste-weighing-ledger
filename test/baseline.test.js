@@ -1,0 +1,2 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import { readFile } from 'node:fs/promises'; import { EventStore } from '../src/event-store.js'; import { LedgerService } from '../src/ledger-service.js';
+test('单张正常称重票据进入日报',async()=>{const events=JSON.parse(await readFile(new URL('../fixtures/weighing-events.json',import.meta.url)));const service=new LedgerService(new EventStore());assert.equal(service.ingest(events[0]).status,'confirmed');assert.equal(service.current('T-1').netKg,7400);assert.equal(service.dailyTotal(),7400);});

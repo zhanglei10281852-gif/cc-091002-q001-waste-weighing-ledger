@@ -1,0 +1,1 @@
+{"name":"waste-weighing-ledger","version":"0.4.0","private":true,"type":"module","scripts":{"test":"node --test"},"engines":{"node":">=20"},"description":"生活垃圾称重事件与结算账本"}
